@@ -44,6 +44,20 @@
         app:layout_constraintVertical_bias="0.523"
         app:strokeColor="#038C7F" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="207dp"
+        android:layout_height="53dp"
+        android:onClick="PruebasScanner"
+        android:text="Pruebas Scan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.833"
+        app:strokeColor="#038C7F" />
+
     <EditText
         android:id="@+id/editTextText3"
         android:layout_width="wrap_content"
