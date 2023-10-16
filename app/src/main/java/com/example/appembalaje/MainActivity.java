@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void PruebasScanner(View view){
         QrHanlder scan = new QrHanlder();
-        scan.ReadCode(MainActivity.this,2);
+        scan.ReadCode(MainActivity.this,1);
     }
 
     protected void onActivityResult(int RequestCode,int resultCode, Intent data) {
