@@ -1,5 +1,6 @@
 package com.example.appembalaje.implementacionDAO;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -9,13 +10,12 @@ public class ConexionBBDD extends SQLiteOpenHelper{
 
     public SQLiteDatabase db;
 
-    public ConexionBBDD(@Nullable CategoriaDAO context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+    public ConexionBBDD(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(""); //poner query creacion de BBDD
 
     }
 
