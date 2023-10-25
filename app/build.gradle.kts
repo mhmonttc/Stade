@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "com.example.appembalaje"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.appembalaje"
@@ -41,6 +41,6 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("com.journeyapps:zxing-android-embedded:4.3.0") { isTransitive = false }
     implementation ("com.google.zxing:core:3.3.3")
-    implementation ("com.google.zxing.client.j2se:latest")
+
 
 }

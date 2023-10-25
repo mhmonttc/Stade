@@ -23,4 +23,8 @@ public class ingresar extends AppCompatActivity {
         Intent mCajas = new Intent(this, activity_cajas.class);
         startActivity(mCajas);
     }
+
+    public void menuCrud(View view){
+        //agregar codigo menu desplegable para crud
+    }
 }

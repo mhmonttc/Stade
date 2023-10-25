@@ -59,4 +59,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton"
         app:srcCompat="@drawable/cajas" />
+
+    <Button
+        android:id="@+id/btnMenuInf"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:onClick="menuCrud"
+        android:text="+"
+        tools:layout_editor_absoluteX="323dp"
+        tools:layout_editor_absoluteY="643dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
