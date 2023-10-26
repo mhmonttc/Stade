@@ -1,9 +1,11 @@
 package com.example.appembalaje;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,19 +16,7 @@ public class BottomMenu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ingresar);
-    }
-
-    public void verMenu(View view){
-        Button btnMenu = findViewById(R.id.btnMenuInf);
-        btnMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MostrarMenu();
-            }
-        });
-
-
+        MostrarMenu();
     }
 
     protected void MostrarMenu(){
@@ -42,21 +32,23 @@ public class BottomMenu extends AppCompatActivity {
         crearCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Toast.makeText(BottomMenu.this, "Opción no disponible", Toast.LENGTH_SHORT).show();
             }
         });
 
         crearSubCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Toast.makeText(BottomMenu.this, "Opción no disponible", Toast.LENGTH_SHORT).show();
             }
         });
 
         crearProd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent crud = new Intent(BottomMenu.this, CRUDPX.class);
+                startActivity(crud);
+                bottomSheetDialog.dismiss();
             }
         });
 

@@ -19,13 +19,13 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src=""
+                android:src="@mipmap/ic_launcher"
                 android:layout_margin="8dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Crear Categoria"
+                android:text="Mantenedor de Categoria"
                 android:layout_gravity="center_vertical"
                 android:padding="8dp"/>
         </LinearLayout>
@@ -41,13 +41,13 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src=""
+                android:src="@mipmap/ic_launcher"
                 android:layout_margin="8dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Crear Subcategoria"
+                android:text="Mantenedor de Subcategoria"
                 android:layout_gravity="center_vertical"
                 android:padding="8dp"/>
 
@@ -64,13 +64,13 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src=""
+                android:src="@mipmap/ic_launcher"
                 android:layout_margin="8dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Crear Producto"
+                android:text="Mantenedor de Productos"
                 android:layout_gravity="center_vertical"
                 android:padding="8dp"/>
 

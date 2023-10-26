@@ -14,6 +14,9 @@
         android:hardwareAccelerated="true"
         tools:targetApi="31">
         <activity
+            android:name=".CRUDPX"
+            android:exported="false"/>
+        <activity
             android:name=".BottomMenu"
             android:exported="false" />
         <activity
@@ -27,12 +30,8 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"/>
-        <activity
-            android:name="com.journeyapps.barcodescanner.CaptureActivity"
-            android:screenOrientation="portrait"
-            tools:replace="screenOrientation"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

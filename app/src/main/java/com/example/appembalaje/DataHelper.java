@@ -6,8 +6,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import com.example.appembalaje.interfaces.DAO;
-
 public class DataHelper extends SQLiteOpenHelper {
     public DataHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -20,7 +18,7 @@ public class DataHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXIST productos");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS productos");
         sqLiteDatabase.execSQL("CREATE TABLE productos (id INTEGER PRIMARY KEY, nombre TEXT, cantidad INTEGER, tienda TEXT)");
     }
 }
