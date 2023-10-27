@@ -11,7 +11,7 @@ public class ingresar extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ingresar);
+        setContentView(R.layout.activity_categorias);
     }
 
     public void menuAccesorios(View view){
@@ -19,13 +19,12 @@ public class ingresar extends AppCompatActivity {
         startActivity(mAccesorios);
     }
 
-    public void menuCajas(View view){
-        Intent mCajas = new Intent(this, activity_cajas.class);
-        startActivity(mCajas);
-    }
-
     public void menuCrud(View view){
         Intent menu = new Intent(this,BottomMenu.class);
         startActivity(menu);
     }
+
+
 }
+
+

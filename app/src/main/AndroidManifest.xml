@@ -14,7 +14,7 @@
         android:hardwareAccelerated="true"
         tools:targetApi="31">
         <activity
-            android:name=".CRUDPX"
+            android:name=".crud.Crud_PX"
             android:exported="false"/>
         <activity
             android:name=".BottomMenu"

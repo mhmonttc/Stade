@@ -1,14 +1,16 @@
 package com.example.appembalaje;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class activity_cajas extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
+public class activity_SubCat extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_cat);
     }
+
+
+
 }
