@@ -11,29 +11,32 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appembalaje.R;
-import com.example.appembalaje.modelos.Producto;
+import com.example.appembalaje.modelos.Categoria;
 
 import java.util.List;
 
 public class ListAdapterCategoria extends RecyclerView.Adapter<ListAdapterCategoria.ViewHolder> {
 
-    private List<Producto> datos;
+    private List<Categoria> datos;
     private LayoutInflater layoutInflater;
     private Context context;
-    ImageView imagenPX;
-    TextView txtPX,txtDesc,txtStock;
+    final ListAdapterCategoria.OnItemClickListener listener;
 
+    public interface OnItemClickListener{
+        void onItemClick(Categoria item);
+    }
 
-    public ListAdapterCategoria(List<Producto> itemList, LayoutInflater layoutInflater, Context context) {
+    public ListAdapterCategoria(List<Categoria> itemList, Context context, OnItemClickListener listen) {
         this.datos = itemList;
-        this.layoutInflater = layoutInflater;
+        this.layoutInflater = LayoutInflater.from(context);
         this.context = context;
+        this.listener=listen;
     }
 
     @NonNull
     @Override
     public ListAdapterCategoria.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = layoutInflater.inflate(R.layout.cardview_px,null);
+        View view = layoutInflater.inflate(R.layout.cardview_cat_subcat,null);
         return new ListAdapterCategoria.ViewHolder(view);
     }
 
@@ -47,23 +50,28 @@ public class ListAdapterCategoria extends RecyclerView.Adapter<ListAdapterCatego
         return datos.size();
     }
 
-    public void setItems(List<Producto> itemList){datos=itemList;}
+    public void setItems(List<Categoria> itemList){datos=itemList;}
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
+        ImageView imgCatSub;
+        TextView txtCatSub;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imagenPX = itemView.findViewById(R.id.imgPXCard);
-            txtPX = itemView.findViewById(R.id.txtPXCard);
-            txtDesc = itemView.findViewById(R.id.txtPXDescripcion);
-            txtStock= itemView.findViewById(R.id.txtStock);
+            imgCatSub = itemView.findViewById(R.id.imgCatSub);
+            txtCatSub = itemView.findViewById(R.id.txtCatSub);
         }
 
-        void bindData(final Producto item){
-            imagenPX.setImageBitmap(item.getImagePX());
-            txtPX.setText(item.getNombrePX());
-            txtDesc.setText(item.getDescPX());
-            txtStock.setText(item.getCantPX());
+        void bindData(final Categoria item){
+            //imgCatSub.setImageBitmap(item.getImagen());
+            txtCatSub.setText(item.getNombre());
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onItemClick(item);
+                }
+            });
         }
     }
 }

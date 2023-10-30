@@ -1,4 +1,4 @@
-package com.example.appembalaje.crud;
+package com.example.appembalaje;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -12,14 +12,16 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.appembalaje.R;
 import com.example.appembalaje.dataHelper.DataHelper_Producto;
+import com.example.appembalaje.dataHelper.ProductoCRUD;
 
-public class Crud_PX extends AppCompatActivity {
+public class activity_productos extends AppCompatActivity {
 
     EditText codPX,nomPX,cantPX;
     Spinner spTienda,spCat,spSub;
-    String[] tiendas =new String[]{"Bodega Tienda"};
+    String[] tiendas =new String[]{"Tienda 1"};
+
+    String[] categorias = new String[]{"Por defecto"};
     ListView lstLista;
 
     @Override
@@ -32,53 +34,34 @@ public class Crud_PX extends AppCompatActivity {
 
         spTienda = (Spinner) findViewById(R.id.spTienda);
         spCat =(Spinner) findViewById(R.id.spCategoria);
-        spSub =(Spinner) findViewById(R.id.spSub);
         lstLista =(ListView) findViewById(R.id.lstLista);
+
+        CargarListas();
     }
 
     public void Agregar(View view){
-        DataHelper_Producto dh =new DataHelper_Producto(this,"alistapp.db",null,1);
-        SQLiteDatabase bd =dh.getWritableDatabase();
-        ContentValues reg=new ContentValues();
-        reg.put("id",codPX.getText().toString());
-        reg.put("nombre",nomPX.getText().toString());
-        reg.put("cantidad",cantPX.getText().toString());
-        reg.put("tienda",spTienda.getSelectedItem().toString());
-        reg.put("categoria",spCat.getSelectedItem().toString());
-        reg.put("subcategoria",spSub.getSelectedItem().toString());
-        long resp =bd.insert("productos",null,reg);
-        bd.close();
+        ProductoCRUD agregar = new ProductoCRUD();
+        long resp = agregar.CrearProducto(Integer.parseInt(codPX.getText().toString()),nomPX.getText().toString(),cantPX.getText().toString(),spTienda.getSelectedItem().toString(),spCat.getSelectedItem().toString(),this);
         String response = resp==-1 ? "No se puede agregar el registro":"Registro Agregado";
-        Toast.makeText(Crud_PX.this, response, Toast.LENGTH_SHORT).show();
+        Toast.makeText(activity_productos.this, response, Toast.LENGTH_SHORT).show();
         Limpiar();
         CargarListas();
     }
 
     public void Editar(View view){
-        DataHelper_Producto dh =new DataHelper_Producto(this,"alistapp.db",null,1);
-        SQLiteDatabase bd =dh.getWritableDatabase();
-        ContentValues reg=new ContentValues();
-        reg.put("id",codPX.getText().toString());
-        reg.put("nombre",nomPX.getText().toString());
-        reg.put("cantidad",cantPX.getText().toString());
-        reg.put("tienda",spTienda.getSelectedItem().toString());
-        reg.put("categoria",spCat.getSelectedItem().toString());
-        reg.put("subcategoria",spSub.getSelectedItem().toString());
-        long resp =bd.update("productos",reg,"id=?", new String[]{codPX.getText().toString()});
-        bd.close();
+        ProductoCRUD editar = new ProductoCRUD();
+        long resp = editar.EditarProducto(Integer.parseInt(codPX.getText().toString()),nomPX.getText().toString(),cantPX.getText().toString(),spTienda.getSelectedItem().toString(),spCat.getSelectedItem().toString(),this);
         String response = resp==-1 ? "No se puede agregar el registro":"Registro Agregado";
-        Toast.makeText(Crud_PX.this, response, Toast.LENGTH_SHORT).show();
+        Toast.makeText(activity_productos.this, response, Toast.LENGTH_SHORT).show();
         Limpiar();
         CargarListas();
     }
 
     public void Eliminar(View view){
-        DataHelper_Producto dh =new DataHelper_Producto(this,"alistapp.db",null,1);
-        SQLiteDatabase bd =dh.getWritableDatabase();
-        long resp = bd.delete("productos","id="+codPX,null);
-        bd.close();
+        ProductoCRUD eliminar = new ProductoCRUD();
+        long resp = eliminar.BorrarProducto(Integer.parseInt(codPX.getText().toString()),this);
         String response = resp==-1 ? "Registro no encontrado":"Registro Eliminado";
-        Toast.makeText(Crud_PX.this, response, Toast.LENGTH_SHORT).show();
+        Toast.makeText(activity_productos.this, response, Toast.LENGTH_SHORT).show();
         Limpiar();
         CargarListas();
     }
@@ -89,6 +72,10 @@ public class Crud_PX extends AppCompatActivity {
         ArrayAdapter<String> spAdp = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,tiendas);
         spAdp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spTienda.setAdapter(spAdp);
+
+        ArrayAdapter<String> spAdp2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,categorias);
+        spAdp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spCat.setAdapter(spAdp2);
     }
 
     protected void Limpiar(){
@@ -101,24 +88,19 @@ public class Crud_PX extends AppCompatActivity {
     }
 
     protected void ActualizarListView(){
-        DataHelper_Producto dh =new DataHelper_Producto(this,"alistapp.db",null,1);
-        SQLiteDatabase bd =dh.getWritableDatabase();
-        Cursor c = bd.rawQuery("SELECT id,nombre,cantidad,tienda,categoria,subcategoria from productos",null);
+        ProductoCRUD leer = new ProductoCRUD();
+        Cursor c = leer.TodosLosProductos(this);
         String[] arr = new String[c.getCount()];
         if(c.moveToFirst()){
             int i = 0;
             do{
-                String linea = "||"+c.getInt(0)+"||"+c.getString(1)+"||"+c.getInt(2)+"||"+c.getString(3)+"||"+c.getString(4)+"||"+c.getString(5)+"||";
+                String linea = "||"+c.getInt(0)+"||"+c.getString(1)+"||"+c.getInt(2)+"||"+c.getString(3)+"||"+c.getString(4)+"||";
                 arr[i]=linea;
                 i++;
             }while (c.moveToNext());
             ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,arr);
             lstLista.setAdapter(adaptador);
-            bd.close();
+            leer.CerrarConexión(this);
         }
-
     }
-
-
-
 }

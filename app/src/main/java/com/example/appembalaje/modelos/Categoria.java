@@ -1,13 +1,20 @@
 package com.example.appembalaje.modelos;
 
-public class Categoria {
+import android.graphics.Bitmap;
+
+import java.io.Serializable;
+
+public class Categoria implements Serializable {
 
     private int id;
     private String nombre;
 
+    private Bitmap imagen;
+
     public Categoria(int id, String nombre) {
         this.id = id;
         this.nombre = nombre;
+        //this.imagen=img;
     }
 
     public int getId() {
@@ -25,4 +32,13 @@ public class Categoria {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    /*public Bitmap getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(Bitmap imagen) {
+        this.imagen = imagen;
+    }*/
+
 }

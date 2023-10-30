@@ -2,7 +2,9 @@ package com.example.appembalaje.modelos;
 
 import android.graphics.Bitmap;
 
-public class Producto {
+import java.io.Serializable;
+
+public class Producto implements Serializable {
 
     private Bitmap imagePX;
     private String nombrePX;
@@ -10,16 +12,13 @@ public class Producto {
     private int cantPX;
     private String tiendaPX;
     private String categoriaPX;
-    private String Subcategoria;
 
-    public Producto(Bitmap imagePX, String nombrePX, String descPX, int cantPX, String tiendaPX, String categoriaPX, String subcategoria) {
-        this.imagePX = imagePX;
+    public Producto(String nombrePX, String descPX, int cantPX, String tiendaPX, String categoriaPX) {
         this.nombrePX = nombrePX;
         this.descPX = descPX;
         this.cantPX = cantPX;
         this.tiendaPX = tiendaPX;
         this.categoriaPX = categoriaPX;
-        Subcategoria = subcategoria;
     }
 
     public Bitmap getImagePX() {
@@ -68,14 +67,6 @@ public class Producto {
 
     public void setCategoriaPX(String categoriaPX) {
         this.categoriaPX = categoriaPX;
-    }
-
-    public String getSubcategoria() {
-        return Subcategoria;
-    }
-
-    public void setSubcategoria(String subcategoria) {
-        Subcategoria = subcategoria;
     }
 
 

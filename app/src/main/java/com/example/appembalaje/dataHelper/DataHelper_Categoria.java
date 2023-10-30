@@ -15,7 +15,6 @@ public class DataHelper_Categoria extends SQLiteOpenHelper  {
         @Override
         public void onCreate(SQLiteDatabase sqLiteDatabase) {
             sqLiteDatabase.execSQL("CREATE TABLE categoria (id INTEGER PRIMARY KEY, nombre TEXT)");
-
         }
 
         @Override
@@ -23,5 +22,7 @@ public class DataHelper_Categoria extends SQLiteOpenHelper  {
             sqLiteDatabase.execSQL("DROP TABLE IF EXISTS categoria");
             sqLiteDatabase.execSQL("CREATE TABLE categoria (id INTEGER PRIMARY KEY, nombre TEXT)");
         }
+
+
     }
 

@@ -13,17 +13,16 @@
         android:theme="@style/Theme.AppEmbalaje"
         android:hardwareAccelerated="true"
         tools:targetApi="31">
+        <activity android:name=".activity_Categorias"
+            android:exported="false"/>
         <activity
-            android:name=".crud.Crud_PX"
+            android:name=".activity_productos"
             android:exported="false"/>
         <activity
             android:name=".BottomMenu"
             android:exported="false" />
         <activity
-            android:name=".activity_cajas"
-            android:exported="false" />
-        <activity
-            android:name=".activity_accesorios"
+            android:name=".activity_detalleProducto"
             android:exported="false" />
         <activity
             android:name=".ingresar"

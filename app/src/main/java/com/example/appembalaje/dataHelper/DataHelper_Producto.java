@@ -13,13 +13,13 @@ public class DataHelper_Producto extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("CREATE TABLE productos (id INTEGER PRIMARY KEY, nombre TEXT, cantidad INTEGER, tienda TEXT)");
+        sqLiteDatabase.execSQL("CREATE TABLE productos (id INTEGER PRIMARY KEY, nombre TEXT, cantidad INTEGER, tienda TEXT,categoria TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS productos");
-        sqLiteDatabase.execSQL("CREATE TABLE productos (id INTEGER PRIMARY KEY, nombre TEXT, cantidad INTEGER, tienda TEXT)");
+        sqLiteDatabase.execSQL("CREATE TABLE productos (id INTEGER PRIMARY KEY, nombre TEXT, cantidad INTEGER, tienda TEXT,categoria TEXT)");
     }
 }
 
