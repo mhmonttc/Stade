@@ -37,7 +37,7 @@ public class ListAdapterListaProductos extends RecyclerView.Adapter<ListAdapterL
     @NonNull
     @Override
     public ListAdapterListaProductos.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = layoutInflater.inflate(R.layout.card_lista_prod,null);
+        View view = layoutInflater.inflate(R.layout.cardview_lista_prod,null);
         return new ListAdapterListaProductos.ViewHolder(view);
     }
 
@@ -68,7 +68,7 @@ public class ListAdapterListaProductos extends RecyclerView.Adapter<ListAdapterL
         void bindData(final Producto item){
             //imgCatSub.setImageBitmap(item.getImagen());
             txtListaNombre.setText(item.getNombrePX());
-            txtListaCantidad.setText(item.getCantPX());
+            txtListaCantidad.setText(String.valueOf(item.getCantPX()));
             txtListaTienda.setText(item.getTiendaPX());
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

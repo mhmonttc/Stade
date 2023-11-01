@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public class ProcesoAsyncrono extends AsyncTask<Void,Void,String> {
-
         ProgressDialog progressDialog;
 
         @Override

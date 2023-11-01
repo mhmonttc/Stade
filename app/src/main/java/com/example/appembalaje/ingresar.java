@@ -51,7 +51,7 @@ public class ingresar extends AppCompatActivity {
     }
 
     private void moveToDesc(Categoria item){
-        Intent intent = new Intent(this, activity_detalleProducto.class);
+        Intent intent = new Intent(this, activity_ListaProductos.class);
         intent.putExtra("Categoria",item);
         startActivity(intent);
     }

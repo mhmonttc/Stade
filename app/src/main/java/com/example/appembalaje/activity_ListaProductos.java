@@ -27,18 +27,14 @@ public class activity_ListaProductos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_producto);
         Categoria elemento = (Categoria) getIntent().getSerializableExtra("Categoria");
-        Toast.makeText(this, elemento.getNombre(), Toast.LENGTH_SHORT).show();
-        init();
+        init(elemento);
     }
 
-    private void init(){
+    private void init(Categoria elemento){
         prodList = new ArrayList<>();
-        Categoria elemento = (Categoria) getIntent().getSerializableExtra("Categoria");
         ProductoCRUD prod = new ProductoCRUD();
-        Cursor c = prod.LosProductosDeCiertaCategoria(elemento.getNombre().toString(),this);
-        for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
-            prodList.add(new Producto(c.getString(0),c.getString(1),c.getInt(2),c.getString(3),c.getString(4)));
-        }
+        prodList = prod.LosProductosDeCiertaCategoria(elemento.getNombre(),this);
+        //prodList.add(new Producto("Producto de prueba","hhh",4,"Tienda 1", "Por defecto"));
         ListAdapterListaProductos listAdapterListaProductos = new ListAdapterListaProductos(prodList, this, new ListAdapterListaProductos.OnItemClickListener() {
             @Override
             public void onItemClick(Producto item) {
@@ -51,7 +47,7 @@ public class activity_ListaProductos extends AppCompatActivity {
         recyclerView.setAdapter(listAdapterListaProductos);
     }
 
-    private void moveToDesc(Producto item){
+    private void moveToDesc(Producto item) {
         Intent intent = new Intent(this, activity_detalleProducto.class);
         intent.putExtra("Producto",item);
         startActivity(intent);
