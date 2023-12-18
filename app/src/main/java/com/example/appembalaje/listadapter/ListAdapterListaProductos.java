@@ -18,7 +18,7 @@ import java.util.List;
 
 public class ListAdapterListaProductos extends RecyclerView.Adapter<ListAdapterListaProductos.ViewHolder> {
 
-    private List<Producto> datos;
+    protected List<Producto> datos;
     private LayoutInflater layoutInflater;
     private Context context;
     final ListAdapterListaProductos.OnItemClickListener listener;
@@ -26,6 +26,8 @@ public class ListAdapterListaProductos extends RecyclerView.Adapter<ListAdapterL
     public interface OnItemClickListener{
         void onItemClick(Producto item);
     }
+
+
 
     public ListAdapterListaProductos(List<Producto> itemList, Context context, OnItemClickListener listen) {
         this.datos = itemList;
@@ -67,7 +69,7 @@ public class ListAdapterListaProductos extends RecyclerView.Adapter<ListAdapterL
 
         void bindData(final Producto item){
             //imgCatSub.setImageBitmap(item.getImagen());
-            txtListaNombre.setText(item.getNombrePX());
+            txtListaNombre.setText(item.getDescPX());
             txtListaCantidad.setText(String.valueOf(item.getCantPX()));
             txtListaTienda.setText(item.getTiendaPX());
             itemView.setOnClickListener(new View.OnClickListener() {

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -23,13 +24,20 @@ public class MainActivity extends AppCompatActivity {
         startActivity(login);
     }
 
+    public void mapsPruebas(View view){
+        Uri gmmIntentUri = Uri.parse("google.navigation:q=-33.4524377,-70.5694704");
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        mapIntent.setPackage("com.google.android.apps.maps");
+        startActivity(mapIntent);
+    }
+
     public class ProcesoAsyncrono extends AsyncTask<Void,Void,String> {
         ProgressDialog progressDialog;
 
         @Override
         protected String doInBackground(Void... voids) {
             try {
-                Thread.sleep(5000);
+                Thread.sleep(1500);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

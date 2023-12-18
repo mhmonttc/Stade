@@ -3,6 +3,7 @@ package com.example.appembalaje;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +21,7 @@ import java.util.List;
 
 public class activity_ListaProductos extends AppCompatActivity {
 
-    List<Producto> prodList;
+    private List<Producto> prodList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,11 @@ public class activity_ListaProductos extends AppCompatActivity {
     private void moveToDesc(Producto item) {
         Intent intent = new Intent(this, activity_detalleProducto.class);
         intent.putExtra("Producto",item);
+        startActivity(intent);
+    }
+
+    public void cambioModo(View view){
+        Intent intent = new Intent(this, activity_delivery.class);
         startActivity(intent);
     }
 }

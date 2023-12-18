@@ -2,10 +2,14 @@ package com.example.appembalaje.modelos;
 
 import android.graphics.Bitmap;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
+import java.util.Iterator;
 
 public class Producto implements Serializable {
 
+    private int id;
     private Bitmap imagePX;
     private String nombrePX;
     private String descPX;
@@ -69,6 +73,11 @@ public class Producto implements Serializable {
         this.categoriaPX = categoriaPX;
     }
 
+    public int getId() {
+        return id;
+    }
 
-
+    public void setId(int id) {
+        this.id = id;
+    }
 }

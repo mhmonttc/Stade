@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.appembalaje.modelos.Categoria;
@@ -24,4 +26,6 @@ public class activity_detalleProducto extends AppCompatActivity {
         Toast.makeText(this, elemento.getNombre(), Toast.LENGTH_SHORT).show();
 
     }
+
+
 }

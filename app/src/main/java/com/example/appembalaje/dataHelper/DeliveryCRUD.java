@@ -8,9 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.appembalaje.modelos.Producto;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class ProductoCRUD {
+public class DeliveryCRUD {
 
     public long CrearProducto(int id, String nombre,String cantidad, String tienda, String categoria, Context context){
         DataHelper_Producto dh =new DataHelper_Producto(context,"alistapp.db",null,1);

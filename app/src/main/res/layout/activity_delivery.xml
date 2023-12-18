@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcDetalleProd"
+        android:id="@+id/rcDetalleDelivery"
         android:layout_width="0dp"
         android:layout_height="729dp"
         android:layout_marginStart="8dp"
@@ -19,15 +19,23 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/btnIniciarDelivery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Iniciar Ruta Delivery"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
         android:id="@+id/btnModalidad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cambiar Modo"
-        app:layout_constraintBottom_toTopOf="@+id/rcDetalleProd"
+        app:layout_constraintBottom_toTopOf="@+id/rcDetalleDelivery"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.936"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.307"
-        android:onClick="cambioModo"/>
+        app:layout_constraintVertical_bias="0.307" />
 </androidx.constraintlayout.widget.ConstraintLayout>

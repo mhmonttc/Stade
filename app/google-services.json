@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "958552583440",
+    "firebase_url": "https://aislaapp-default-rtdb.firebaseio.com",
+    "project_id": "aislaapp",
+    "storage_bucket": "aislaapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:958552583440:android:71a939d60bc8a74c500995",
+        "android_client_info": {
+          "package_name": "com.example.appembalaje"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnV_0PhqV41kXxO7-SQJpwDYQdOElQaOg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

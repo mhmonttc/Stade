@@ -6,37 +6,6 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Ingrese el codigo del producto"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Ingrese el nombre del producto"
-        app:layout_constraintBottom_toTopOf="@+id/nomPX"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/codPX" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Ingrese la cantidad de producto"
-        app:layout_constraintBottom_toTopOf="@+id/cantPX"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nomPX" />
-
-    <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,44 +17,47 @@
 
     <EditText
         android:id="@+id/codPX"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="273dp"
+        android:layout_height="36dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
+        android:hint="Ingrese el codigo del producto"
         android:inputType="number"
         app:layout_constraintEnd_toStartOf="@+id/button"
-        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/cantPX"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:ems="10"
+        android:hint="Ingrese la cantidad de producto"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/textView10"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/nomPX" />
 
     <EditText
         android:id="@+id/nomPX"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
+        android:hint="Ingrese el nombre del producto"
         android:inputType="text"
         android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/textView9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/codPX" />
 
     <Spinner
         android:id="@+id/spTienda"
@@ -103,11 +75,10 @@
         android:id="@+id/btnAgregar"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:onClick="Agregar"
         android:text="Agregar"
-        app:layout_constraintBottom_toTopOf="@+id/lstLista"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spCategoria" />
 
@@ -115,11 +86,12 @@
         android:id="@+id/btnEditar"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
         android:onClick="Editar"
         android:text="Editar"
-        app:layout_constraintBottom_toTopOf="@+id/lstLista"
         app:layout_constraintEnd_toStartOf="@+id/btnBorrar"
-        app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toEndOf="@+id/btnAgregar"
         app:layout_constraintTop_toBottomOf="@+id/spCategoria" />
 
@@ -127,10 +99,10 @@
         android:id="@+id/btnBorrar"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:onClick="Eliminar"
         android:text="Borrar"
-        app:layout_constraintBottom_toTopOf="@+id/lstLista"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spCategoria" />
 
@@ -160,19 +132,22 @@
 
     <ListView
         android:id="@+id/lstLista"
-        android:layout_width="0dp"
-        android:layout_height="417dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnEditar" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="Scan"
         app:layout_constraintEnd_toEndOf="parent"
